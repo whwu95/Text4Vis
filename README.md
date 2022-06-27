@@ -1,2 +1,2 @@
-# Text4Vis
-Transferring Textual Knowledge for Visual Recognition
+# Transferring Textual Knowledge for Visual Recognition
+
