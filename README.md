@@ -15,9 +15,9 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 
 ## Updates
 - [ ] Models: The trained models & logs.
-- [ ] Config: All the configs (general/few-shot/zero-shot video recognition) on Kinetics-400 & 600, ActivityNet, UCF, and HMDB.
-- [ ] Code: Zero-shot Evaluation: Half-classes evaluation and Full-classes evaluation.
-- [ ] Code: Distributed training for InfoNCE and Compatible with CE.
+- [x] **[Nov 30, 2022]** Config: All the configs (general/few-shot/zero-shot video recognition) on Kinetics-400 & 600, ActivityNet, UCF, and HMDB.
+- [x] **[Nov 30, 2022]** Code: Zero-shot Evaluation: Half-classes evaluation and Full-classes evaluation.
+- [x] **[Nov 29, 2022]** Code: Distributed training for InfoNCE and Compatible with CE.
 - [x] **[Nov 28, 2022]** Code: Multi-Machine Multi-GPU Distributed Training
 - [x] **[Nov 28, 2022]** Code: Single-Machine Multi-GPU Distributed Training, Distributed testing.
 - [x] **[Nov 19, 2022]** 🎉Our paper has been accepted by **AAAI-2023**.
@@ -80,13 +80,13 @@ Annotation information consists of two parts: video label, and category descript
 ## Training
 This implementation supports Multi-GPU `DistributedDataParallel` training, which is faster and simpler than `DataParallel` used in [ActionCLIP](https://github.com/sallymmx/actionclip). 
 
-- To train our model on Kinetics-400 with 8 GPUs in a **Single Machine**, you can run:
+- **Single Machine**: To train our model on Kinetics-400 with 8 GPUs in *Single Machine*, you can run:
 ```sh
 # For example, train the 8 Frames ViT-B/32.
 sh scripts/run_train.sh  configs/k400/k400_train_rgb_vitb-32-f8.yaml
 ```
 
-- We also provide the script to train larger model with **Mulitple Machines** (e.g., 2 machines and 16 GPUs), you can run:
+- **Mulitple Machines**: We also provide the script to train larger model with *Mulitple Machines* (e.g., 2 machines and 16 GPUs), you can run:
 ```sh
 # For example, we train the 8 Frames ViT-L/14 with 2 machines as follows:
 # For first machine, you need to set the ip of your first machine as the --master_addr, --nnodes is 2.
@@ -97,7 +97,7 @@ sh scripts/run_train_multinodes.sh configs/k400/k400_train_rgb_vitl-14-f8.yaml 0
 sh scripts/run_train_multinodes.sh configs/k400/k400_train_rgb_vitl-14-f8.yaml 1
 ```
 
-- To train our model under **Few-shot** scenario, you just need to add one line in the general config file:
+- **Few-shot Recognition**: To train our model under *Few-shot* scenario, you just need to add one line in the general config file:
 ```sh
 # You can refer to config/k400/k400_few_shot.yaml
 data: 
@@ -125,33 +125,25 @@ We use the Kinetics-400 pre-trained model (e.g., ViT-L/14 with 8 frames) to perf
 
 - Half-classes Evaluation: A traditional evaluation protocol involves selecting half of the test dataset's classes, repeating the process ten times, and reporting the mean accuracy with a standard deviation of ten times.
 
+
+- Full-classes Evaluation: Perform evaluation on the entire dataset.
+
 ```sh
-# On ActivityNet
+# On ActivityNet: reporting the half-classes and full-classes results
 sh scripts/run_test_zeroshot.sh  configs/anet/anet_zero_shot.yaml exp/k400/ViT-L/14/f8/last_model.pt
 
-# On UCF101
+# On UCF101: reporting the half-classes and full-classes results
 sh scripts/run_test_zeroshot.sh  configs/ucf101/ucf_zero_shot.yaml exp/k400/ViT-L/14/f8/last_model.pt
 
-# On HMDB51
+# On HMDB51: reporting the half-classes and full-classes results
 sh scripts/run_test_zeroshot.sh  configs/hmdb51/hmdb_zero_shot.yaml exp/k400/ViT-L/14/f8/last_model.pt
 
-# On Kinetics-600, reporting the mean accuracy with standard deviation of three splits.
+# On Kinetics-600: manually calculating the mean accuracy with standard deviation of three splits.
 sh scripts/run_test.sh  configs/k600/k600_zero_shot_split1.yaml exp/k400/ViT-L/14/f8/last_model.pt
 sh scripts/run_test.sh  configs/k600/k600_zero_shot_split2.yaml exp/k400/ViT-L/14/f8/last_model.pt
 sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/14/f8/last_model.pt
 ```
 
-- Full-classes Evaluation: Perform evaluation on the entire dataset.
-```sh
-# On ActivityNet
-sh scripts/run_test.sh  configs/anet/anet_zero_shot.yaml exp/k400/ViT-L/14/f8/last_model.pt
-
-# On UCF101
-sh scripts/run_test.sh  configs/ucf101/ucf_zero_shot.yaml exp/k400/ViT-L/14/f8/last_model.pt
-
-# On HMDB51
-sh scripts/run_test.sh  configs/hmdb51/hmdb_zero_shot.yaml exp/k400/ViT-L/14/f8/last_model.pt
-```
 
 
 ## Model Zoo
@@ -163,38 +155,38 @@ Here we provide some off-the-shelf pre-trained checkpoints of our models in the 
 
 | Architecture |#Frame |  Top-1 Acc.(%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-B/32 | 8x3x4 | 80.0 | - | - | - |
-| ViT-B/32 | 16x3x4 | 80.5 | - | - | - |
-| ViT-B/16 | 8x3x4 | 82.9 | - | - | - |
-| ViT-B/16 | 16x3x4 | 83.6 | - | - | - |
-| ViT-L/14* | 8x3x4 | 86.4 | - | - | - |
-| ViT-L/14-336 | 8x3x4 | 87.1 | - | - | - |
-| ViT-L/14-336 | 32x3x1 | 87.8 | - | - | - |
+| ViT-B/32 | 8x3x4 | 80.0 | - | [log](exps/k400/ViT-B/32/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-32-f8.yaml) |
+| ViT-B/32 | 16x3x4 | 80.5 | - | [log](exps/k400/ViT-B/32/f16/log.txt)  | [config](configs/k400/k400_train_rgb_vitb-32-f16.yaml) |
+| ViT-B/16 | 8x3x4 | 82.9 | - | [log](exps/k400/ViT-B/16/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f8.yaml) |
+| ViT-B/16 | 16x3x4 | 83.6 | - | [log](exps/k400/ViT-B/16/f16/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f16.yaml) |
+| ViT-L/14* | 8x3x4 | 86.4 | - | [log](exps/k400/ViT-L/14/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-f8.yaml) |
+| ViT-L/14-336 | 8x3x4 | 87.1 | - | [log](exps/k400/ViT-L/14-336px/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f8.yaml) |
+| ViT-L/14-336 | 32x3x1 | 87.8 | - | [log](exps/k400/ViT-L/14-336px/f32/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f32.yaml) |
 
 *Note: * indicates that this ViT-L model is used for the zero-shot evaluation on UCF, HMDB, ActivityNet and Kinetics-600.*
 
 #### ActivityNet
 | Architecture |#Frame |  mAP (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 96.5 | - | - | - |
-| ViT-L/14-336 | 16x1x1 | 96.9 | - | - | - |
+| ViT-L/14 | 16x1x1 | 96.5 | - | [log](exps/anet/ViT-L/14/f16/log.txt) | [config](configs/anet/anet_k400_finetune.yaml) |
+| ViT-L/14-336 | 16x1x1 | 96.9 | - | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
 
 #### UCF-101
 | Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 98.1 | - | - | - |
-| ViT-L/14-336 | 16x1x1 | 98.2 | - | - | - |
+| ViT-L/14 | 16x1x1 | 98.1 | - | [log](exps/ucf101/ViT-L/14/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune.yaml) |
+| ViT-L/14-336 | 16x1x1 | 98.2 | - | [log](exps/ucf101/ViT-L/14-336px/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune_336.yaml) |
 
 #### HMDB-51
 | Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 81.3 | - | - | - |
+| ViT-L/14 | 16x1x1 | 81.3 | - | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
 
 
 
 
 ## Bibtex
-If you find this repository useful, please consider citing our paper 😄:
+If you find this repository useful, please star🌟 this repo and cite📑 our paper:
 
 ```
 @article{wu2022transferring,

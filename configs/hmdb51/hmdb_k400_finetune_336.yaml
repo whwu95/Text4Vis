@@ -1,0 +1,42 @@
+pretrain: exp_sota/k400/ViT-L/14-336px/f16/last_model.pt
+resume:
+seed: 1024
+data:
+    dataset: hmdb51
+    modality: RGB
+    num_segments: 16
+    seg_length: 1
+    batch_size: 1
+    workers: 4
+    num_classes: 51
+    image_tmpl: 'image_{:06d}.jpg'
+    train_root: '/bpfs/v2_mnt/VIS/wuwenhao/hmdb51_rgb_img_256_340'
+    val_root: '/bpfs/v2_mnt/VIS/wuwenhao/hmdb51_rgb_img_256_340'
+    train_list: 'lists/hmdb51/train_rgb_split_1.txt'
+    val_list: 'lists/hmdb51/val_rgb_split_1.txt'
+    label_list: 'lists/hmdb51_labels.csv'
+    input_size: 336
+    random_shift: True
+network:
+    arch: ViT-L/14-336px  #ViT-B/32 ViT-B/16
+    init: True
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_hmdb
+    sim_header: Transf
+    drop: 0      
+solver:
+    type: cosine
+    epochs: 30
+    start_epoch: 0
+    optim: adamw
+    lr: 5.e-5
+    lr_warmup_step: 5
+    weight_decay: 0.2
+    loss_type: CE
+    evaluate: False
+    clip_ratio: 0.1
+    grad_accumulation_steps: 8
+logging:
+    print_freq: 10
+    eval_freq: 5

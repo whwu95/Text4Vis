@@ -1,0 +1,43 @@
+pretrain: exp_sota/k400/ViT-L/14-336px/f16/last_model.pt
+resume: 
+seed: 1024
+data:
+    dataset: anet
+    modality: RGB
+    num_segments: 16
+    seg_length: 1
+    batch_size: 1
+    workers: 4
+    num_classes: 200
+    image_tmpl: 'image_{:06d}.jpg'
+    train_root: '/bpfs/v2_mnt/VIS/wuwenhao/anet/anet_instance_frames_v1.3_train_vids_fps1'
+    val_root: '/bpfs/v2_mnt/VIS/wuwenhao/anet/activitynet_val_resize_img_256_340_fps1'    
+    train_list: 'lists/anet/anet_train_instance_fps1.txt'
+    val_list: 'lists/anet/anet_val_video_fps1.txt' #
+    label_list: 'lists/anet1.3_labels.csv'
+    input_size: 336
+    random_shift: True
+network:
+    arch: ViT-L/14-336px
+    init: True
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_anet
+    sim_header: Transf
+    drop: 0            
+solver:
+    type: cosine
+    epochs: 30
+    start_epoch: 0
+    optim: adamw
+    lr: 5.e-5
+    lr_warmup_step: 5
+    weight_decay: 0.2
+    loss_type: CE
+    evaluate: False
+    clip_ratio: 0.1
+    grad_accumulation_steps: 8
+logging:
+    print_freq: 10
+    eval_freq: 5
+

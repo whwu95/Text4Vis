@@ -1,0 +1,43 @@
+pretrain: 
+resume:
+seed: 1024
+data:
+    dataset: ucf101
+    modality: RGB
+    num_segments: 8
+    seg_length: 1
+    batch_size: 8
+    workers: 4
+    num_classes: 101
+    image_tmpl: 'image_{:04d}.jpg'
+    train_root: '/bpfs/v2_mnt/VIS/wuwenhao/UCF101-frames'
+    val_root: '/bpfs/v2_mnt/VIS/wuwenhao/UCF101-frames'
+    train_list: 'lists/ucf101/train_rgb_split_1.txt' 
+    val_list: 'lists/ucf101/val_rgb_split_1.txt'
+    label_list: 'lists/ucf_labels.csv'
+    input_size: 224
+    random_shift: True
+    shot: 2
+network:
+    arch: ViT-L/14  #ViT-B/32 ViT-B/16
+    init: True
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_hmdb
+    sim_header: None
+    drop: 0     
+solver:
+    type: cosine
+    epochs: 30
+    start_epoch: 0
+    optim: adamw
+    lr: 5.e-5
+    lr_warmup_step: 5
+    weight_decay: 0.2
+    loss_type: CE
+    evaluate: False
+    clip_ratio: 0.1
+    grad_accumulation_steps: 1
+logging:
+    print_freq: 10
+    eval_freq: 5

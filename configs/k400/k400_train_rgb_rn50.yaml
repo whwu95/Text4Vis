@@ -1,0 +1,50 @@
+resume:
+pretrain:
+seed: 1024
+data:
+    dataset: k400
+    modality: RGB
+    num_segments: 8
+    seg_length: 1
+    batch_size: 32
+    workers: 4
+    num_classes: 400
+    image_tmpl: 'img_{:05d}.jpg'
+    train_root: '/bpfs/v2_mnt/VIS/test/k400/train_320_frames'
+    train_list: 'lists/k400/kinetics_rgb_train_se320.txt'
+    val_root: /bpfs/v2_mnt/VIS/test/k400/kinetics_400_val_320_opencv
+    val_list: lists/k400/kinetics_rgb_val_se320.txt
+    label_list: 'lists/kinetics_400_labels.csv'
+    input_size: 224
+    randaug:
+        N: 2 #2
+        M: 9  #9
+    random_shift: True
+network:
+    arch: RN50  # RN50 RN101 RN50x4 RN50x16 RN50x64
+    init: True
+    tm: False  # False tsm
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_k400
+    sim_header: Transf
+    joint_st: False
+    drop: 0      
+    fix_text: True  
+    fix_video: False        
+solver:
+    type: cosine
+    epochs: 30
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 5.e-5
+    lr_warmup_step: 5
+    weight_decay: 0.2
+    loss_type: CE
+    evaluate: False
+    clip_ratio: 0.1
+    grad_accumulation_steps: 1
+logging:
+    print_freq: 10
+    eval_freq: 1
