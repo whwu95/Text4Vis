@@ -40,7 +40,7 @@ _MODELS = {
 }
 
 
-def _download(url: str, root: str = os.path.expanduser("../clip-pretrain")):
+def _download(url: str, root: str = os.path.expanduser("~/.cache/clip")):
     os.makedirs(root, exist_ok=True)
     filename = os.path.basename(url)
 

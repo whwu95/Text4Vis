@@ -1,4 +1,4 @@
-# 【AAAI'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition
+# 🔥【AAAI'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transferring-textual-knowledge-for-visual/action-classification-on-kinetics-400)](https://paperswithcode.com/sota/action-classification-on-kinetics-400?p=transferring-textual-knowledge-for-visual)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transferring-textual-knowledge-for-visual/action-recognition-in-videos-on-activitynet)](https://paperswithcode.com/sota/action-recognition-in-videos-on-activitynet?p=transferring-textual-knowledge-for-visual)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transferring-textual-knowledge-for-visual/action-recognition-in-videos-on-ucf101)](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101?p=transferring-textual-knowledge-for-visual)
@@ -13,8 +13,8 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 
 
 
-## Updates
-- [ ] Models: The trained models & logs.
+## 📣 Updates
+- [x] **[Dec 22, 2022]** Models: The trained models & logs.
 - [x] **[Nov 30, 2022]** Config: All the configs (general/few-shot/zero-shot video recognition) on Kinetics-400 & 600, ActivityNet, UCF, and HMDB.
 - [x] **[Nov 30, 2022]** Code: Zero-shot Evaluation: Half-classes evaluation and Full-classes evaluation.
 - [x] **[Nov 29, 2022]** Code: Distributed training for InfoNCE and Compatible with CE.
@@ -29,7 +29,7 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 
 
 
-## Overview
+## 🌈 Overview
 ![1](teaser.png)  
 ![2](text4vis.png)  
 
@@ -40,7 +40,7 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 * [Model Zoo](#model-zoo)
 
 
-## Prerequisites
+## 📕 Prerequisites
 The code is built with following libraries:
 
 - [PyTorch](https://pytorch.org/) >= 1.8
@@ -53,7 +53,7 @@ The code is built with following libraries:
 - Optional: decord (for on-the-fly video training)
 - Optional: torchnet (for mAP evaluation on ActivityNet)
 
-## Data Preparation
+## 📚 Data Preparation
 
 #### Video Loader
 **(Recommend)** To train all of our models, we extract videos into frames for fast reading. Please refer to [MVFNet](https://github.com/whwu95/MVFNet/blob/main/data_process/DATASETS.md) repo for the detaied guide of data processing.  
@@ -77,7 +77,7 @@ Annotation information consists of two parts: video label, and category descript
 
 
 
-## Training
+## 🚀 Training
 This implementation supports Multi-GPU `DistributedDataParallel` training, which is faster and simpler than `DataParallel` used in [ActionCLIP](https://github.com/sallymmx/actionclip). 
 
 - **Single Machine**: To train our model on Kinetics-400 with 8 GPUs in *Single Machine*, you can run:
@@ -106,7 +106,7 @@ data:
 ```
 
 
-## Testing
+## ⚡ Testing
 We support single view validation and multi-view (4x3 views) validation.
 
 #### General/Few-shot Video Recognition
@@ -146,7 +146,7 @@ sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/1
 
 
 
-## Model Zoo
+## 📱 Model Zoo
 
 Here we provide some off-the-shelf pre-trained checkpoints of our models in the followin tables.
 
@@ -155,37 +155,37 @@ Here we provide some off-the-shelf pre-trained checkpoints of our models in the 
 
 | Architecture |#Frame |  Top-1 Acc.(%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-B/32 | 8x3x4 | 80.0 | - | [log](exps/k400/ViT-B/32/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-32-f8.yaml) |
-| ViT-B/32 | 16x3x4 | 80.5 | - | [log](exps/k400/ViT-B/32/f16/log.txt)  | [config](configs/k400/k400_train_rgb_vitb-32-f16.yaml) |
-| ViT-B/16 | 8x3x4 | 82.9 | - | [log](exps/k400/ViT-B/16/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f8.yaml) |
-| ViT-B/16 | 16x3x4 | 83.6 | - | [log](exps/k400/ViT-B/16/f16/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f16.yaml) |
-| ViT-L/14* | 8x3x4 | 86.4 | - | [log](exps/k400/ViT-L/14/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-f8.yaml) |
-| ViT-L/14-336 | 8x3x4 | 87.1 | - | [log](exps/k400/ViT-L/14-336px/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f8.yaml) |
-| ViT-L/14-336 | 32x3x1 | 87.8 | - | [log](exps/k400/ViT-L/14-336px/f32/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f32.yaml) |
+| ViT-B/32 | 8x3x4 | 80.0 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-32-f8.pt) | [log](exps/k400/ViT-B/32/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-32-f8.yaml) |
+| ViT-B/32 | 16x3x4 | 80.5 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-32-f16.pt) | [log](exps/k400/ViT-B/32/f16/log.txt)  | [config](configs/k400/k400_train_rgb_vitb-32-f16.yaml) |
+| ViT-B/16 | 8x3x4 | 82.9 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f8.pt) | [log](exps/k400/ViT-B/16/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f8.yaml) |
+| ViT-B/16 | 16x3x4 | 83.6 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f16.pt)| [log](exps/k400/ViT-B/16/f16/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f16.yaml) |
+| ViT-L/14* | 8x3x4 | 86.4 | [GoogleDrive](https://drive.google.com/file/d/1tGfE6HDjTGZ7-y6XM7D6UJAx1Esj-q7u/view?usp=share_link) | [log](exps/k400/ViT-L/14/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-f8.yaml) |
+| ViT-L/14-336 | 8x3x4 | 87.1 | [BaiduCloud](https://pan.baidu.com/s/1aRyU08rdNjNZzGEFHaGLDw) pwd:uwl6 | [log](exps/k400/ViT-L/14-336px/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f8.yaml) |
+| ViT-L/14-336 | 32x3x1 | 87.8 | [GoogleDrive](https://drive.google.com/file/d/1NWl4J6YkwUt1vVwzCj85svz_tLfR72zk/view?usp=share_link) | [log](exps/k400/ViT-L/14-336px/f32/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f32.yaml) |
 
 *Note: * indicates that this ViT-L model is used for the zero-shot evaluation on UCF, HMDB, ActivityNet and Kinetics-600.*
 
 #### ActivityNet
 | Architecture |#Frame |  mAP (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 96.5 | - | [log](exps/anet/ViT-L/14/f16/log.txt) | [config](configs/anet/anet_k400_finetune.yaml) |
-| ViT-L/14-336 | 16x1x1 | 96.9 | - | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
+| ViT-L/14 | 16x1x1 | 96.5 | [BaiduCloud](https://pan.baidu.com/s/1Gum9cSlj7B1IHOgUZjUdUw) pwd:e9m7 | [log](exps/anet/ViT-L/14/f16/log.txt) | [config](configs/anet/anet_k400_finetune.yaml) |
+| ViT-L/14-336 | 16x1x1 | 96.9 | [BaiduCloud](https://pan.baidu.com/s/12rHqi9R1cFORpZEbqhvsfg) pwd:duq7 | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
 
 #### UCF-101
 | Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 98.1 | - | [log](exps/ucf101/ViT-L/14/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune.yaml) |
-| ViT-L/14-336 | 16x1x1 | 98.2 | - | [log](exps/ucf101/ViT-L/14-336px/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune_336.yaml) |
+| ViT-L/14 | 16x1x1 | 98.1 | [BaiduCloud](https://pan.baidu.com/s/1jI6gKnzqeOLtJJyK9vBLhw) pwd:i93p | [log](exps/ucf101/ViT-L/14/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune.yaml) |
+<!-- | ViT-L/14-336 | 16x1x1 | 98.2 | - | [log](exps/ucf101/ViT-L/14-336px/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune_336.yaml) | -->
 
 #### HMDB-51
 | Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 81.3 | - | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
+| ViT-L/14 | 16x1x1 | 81.3 | [Baidu Cloud](https://pan.baidu.com/s/1aa_uBAc0Cauww8WZMWmqsQ) pwd:023f | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
 
 
 
 
-## Bibtex
+## 📌 Bibtex
 If you find this repository useful, please star🌟 this repo and cite📑 our paper:
 
 ```
@@ -193,18 +193,18 @@ If you find this repository useful, please star🌟 this repo and cite📑 our p
   title={Revisiting Classifier: Transferring Vision-Language Models for Video Recognition},
   author={Wu, Wenhao and Sun, Zhun and Ouyang, Wanli},
   booktitle={AAAI Conference on Artificial Intelligence (AAAI)},
-  year={2022}
+  year={2023}
 }
 ```
 
 
 
 
-## Acknowledgement
+## 🎗️ Acknowledgement
 
 This repository is built based on [ActionCLIP](https://github.com/sallymmx/actionclip) and [CLIP](https://github.com/openai/CLIP). Sincere thanks to their wonderful works.
 
 
-## Contact
+## 👫 Contact
 For any question, please file an issue or contact [Wenhao Wu](https://whwu95.github.io/)
 
