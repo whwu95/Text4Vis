@@ -29,7 +29,7 @@ from contextlib import suppress
 from datasets import Video_dataset
 from modules.video_clip import video_header
 from utils.NCELoss import NCELoss, DualLoss
-from utils.Augmentation import get_augmentation, randAugment
+from utils.Augmentation import get_augmentation
 from utils.solver import _optimizer, _lr_scheduler
 from modules.text_prompt import text_prompt
 
@@ -120,8 +120,8 @@ def main(args):
     transform_train = get_augmentation(True, config)
     transform_val = get_augmentation(False, config)
 
-    if config.data.randaug.N > 0:
-        transform_train = randAugment(transform_train, config)
+    # if config.data.randaug.N > 0:
+    #     transform_train = randAugment(transform_train, config)
 
     logger.info('train transforms: {}'.format(transform_train.transforms))
     logger.info('val transforms: {}'.format(transform_val.transforms))

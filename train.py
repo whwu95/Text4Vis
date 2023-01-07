@@ -29,7 +29,7 @@ from contextlib import suppress
 
 from datasets import Video_dataset
 from modules.video_clip import video_header, VideoCLIP
-from utils.Augmentation import get_augmentation, randAugment
+from utils.Augmentation import get_augmentation
 from utils.solver import _lr_scheduler
 from modules.text_prompt import text_prompt
 
@@ -140,8 +140,8 @@ def main(args):
     transform_train = get_augmentation(True, config)
     transform_val = get_augmentation(False, config)
 
-    if config.data.randaug.N:
-        transform_train = randAugment(transform_train, config)
+    # if config.data.randaug.N:
+    #     transform_train = randAugment(transform_train, config)
 
     logger.info('train transforms: {}'.format(transform_train.transforms))
     logger.info('val transforms: {}'.format(transform_val.transforms))
@@ -272,7 +272,7 @@ def main(args):
             other_params.append(param)
     optimizer = optim.AdamW([{'params': clip_params, 'lr': config.solver.lr * config.solver.clip_ratio}, 
                             {'params': other_params, 'lr': config.solver.lr}],
-                            betas=(0.9, 0.98), lr=config.solver.lr, eps=1e-8,
+                            betas=(0.9, 0.999), lr=config.solver.lr, eps=1e-8,
                             weight_decay=config.solver.weight_decay) 
 
     lr_scheduler = _lr_scheduler(config, optimizer)

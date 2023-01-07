@@ -5,7 +5,7 @@ def _optimizer(config, model, video_head):
     if config.solver.optim == 'adam':
         optimizer = optim.Adam([{'params': model.parameters()},  
          {'params': video_head.parameters(), 'lr': config.solver.lr}],
-                               lr=config.solver.lr * config.solver.clip_ratio, betas=(0.9, 0.98), eps=1e-8,
+                               lr=config.solver.lr * config.solver.clip_ratio, betas=(0.9, 0.999), eps=1e-8,
                                weight_decay=0.2)  # Params used from paper, the lr is smaller, more safe for fine tuning to new dataset
         print('Adam')
     elif config.solver.optim == 'sgd':
@@ -29,7 +29,7 @@ def _optimizer(config, model, video_head):
         # print('[INFO] number of textual parameters:', len(text_params), flush=True)
         optimizer = optim.AdamW([{'params': model.parameters(), 'lr': config.solver.lr * config.solver.clip_ratio},
                                  {'params': video_head.parameters(), 'lr': config.solver.lr}],
-                                betas=(0.9, 0.98), lr=config.solver.lr, eps=1e-8,
+                                betas=(0.9, 0.999), lr=config.solver.lr, eps=1e-8,
                                 weight_decay=config.solver.weight_decay)  # Params used from paper, the lr is smaller, more safe for fine tuning to new dataset
         # for param_group in optimizer.param_groups:
         #     print(param_group['lr'])

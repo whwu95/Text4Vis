@@ -1,13 +1,4 @@
 from datasets.transforms import *
-from RandAugment import RandAugment
-
-class GroupTransform(object):
-    def __init__(self, transform):
-        self.worker = transform
-
-    def __call__(self, img):
-        img_group, label = img
-        return [self.worker(img) for img in img_group], label
 
 def train_augmentation(input_size, flip=True):
     if flip:
@@ -55,7 +46,4 @@ def get_augmentation(training, config):
 
 
 
-def randAugment(transform_train, config):
-    print('Using RandAugment!')
-    transform_train.transforms.insert(0, GroupTransform(RandAugment(config.data.randaug.N, config.data.randaug.M)))
-    return transform_train
+
