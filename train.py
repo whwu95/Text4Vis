@@ -251,9 +251,9 @@ def main(args):
             logger.info("=> loading checkpoint '{}'".format(config.resume))
             checkpoint = torch.load(config.resume, map_location='cpu')
             model_full.load_state_dict(update_dict(checkpoint['model_state_dict']))
-            start_epoch = checkpoint['epoch']
+            start_epoch = checkpoint['epoch'] + 1
             logger.info("=> loaded checkpoint '{}' (epoch {})"
-                   .format(config.evaluate, start_epoch))
+                        .format(config.evaluate, checkpoint['epoch']))
             del checkpoint
         else:
             logger.info("=> no checkpoint found at '{}'".format(config.pretrain))
