@@ -126,6 +126,11 @@ def main(args):
         device = "cuda"
         cudnn.benchmark = True
 
+    # fix the seed for reproducibility
+    seed = config.seed + dist.get_rank()
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+
     # get fp16 model and weight
     model, clip_state_dict = clip.load(
         config.network.arch,
