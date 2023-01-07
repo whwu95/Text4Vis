@@ -244,9 +244,6 @@ def validate(val_loader, device, model, config, text_features, test_crops, test_
                          i, len(val_loader), runtime=runtime, top1=top1, top5=top5)))
 
     if dist.get_rank() == 0:
-        print('-----Full-classes Evaluation------')
-        print('Overall Top1 {:.03f}% Top5 {:.03f}%'.format(top1.avg, top5.avg))
-
         ## half-classes evaluation
         sim, la = sim_logits[0], labels[0]
         vid_feat = i_features[0]
@@ -293,7 +290,9 @@ def multi_split_test(vis_embs, text_embs, true_label):
     # text_embs: [101, 768]
     # true_label: [10000,]
     full_acc1, full_acc5 = compute_accuracy(vis_embs, text_embs, true_label)
- 
+    print('-----Full-classes Evaluation------')
+    print('Overall Top1 {:.03f}% Top5 {:.03f}%'.format(full_acc1.item(), full_acc5.item())) 
+
     # Calculate accuracy per split
     # Only when the model has been trained on a different dataset
     true_label = true_label.numpy()
