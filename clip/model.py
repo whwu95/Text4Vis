@@ -5,6 +5,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 from torch import nn
+import torch.utils.checkpoint as checkpoint
 
 class Bottleneck(nn.Module):
     expansion = 4
@@ -219,14 +220,20 @@ class ResidualAttentionBlock(nn.Module):
         self.attn_mask = self.attn_mask.to(dtype=x.dtype, device=x.device) if self.attn_mask is not None else None
         return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask)[0]
 
-    def forward(self, x: torch.Tensor):
+    def forward(self, x: torch.Tensor, with_cp=False):
         x = self.control_point(x)
-        h = x 
-        x = h + self.drop_path(self.attention(self.ln_1(x)))
+        if with_cp:
+            attn_out = checkpoint.checkpoint(self.attention, self.ln_1(x))
+            x = x + self.drop_path(attn_out)
+        else:
+            x = x + self.drop_path(self.attention(self.ln_1(x)))
 
         x = self.control_point(x)
-        h = x
-        x = h + self.drop_path(self.mlp(self.ln_2(x)))
+        if with_cp:
+            mlp_out = checkpoint.checkpoint(self.mlp, self.ln2(x))
+            x = x + self.drop_path(mlp_out)
+        else:
+            x = x + self.drop_path(self.mlp(self.ln_2(x)))
         return x
 
 
