@@ -230,7 +230,7 @@ class ResidualAttentionBlock(nn.Module):
 
         x = self.control_point(x)
         if with_cp:
-            mlp_out = checkpoint.checkpoint(self.mlp, self.ln2(x))
+            mlp_out = checkpoint.checkpoint(self.mlp, self.ln_2(x))
             x = x + self.drop_path(mlp_out)
         else:
             x = x + self.drop_path(self.mlp(self.ln_2(x)))
