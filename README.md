@@ -35,9 +35,10 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 
 * [Prerequisites](#Prerequisites)
 * [Data Preparation](#data-preparation)
+* [Model Zoo](#model-zoo)
 * [Training](#training)  
 * [Testing](#testing)  
-* [Model Zoo](#model-zoo)
+
 
 
 ## 📕 Prerequisites
@@ -74,6 +75,44 @@ Annotation information consists of two parts: video label, and category descript
 
 - Video Label: As mentioned above, this part is same as the traditional video recognition. Please refer to `lists/k400/kinetics_rgb_train_se320.txt` for the format.
 - Category Description: We also need a textual description for each video category.  Please refer to `lists/kinetics_400_labels.csv` for the format.
+
+
+
+## 📱 Model Zoo
+
+Here we provide some off-the-shelf pre-trained checkpoints of our models in the followin tables.
+
+*#Frame = #input_frame x #spatial crops x #temporal clips*
+#### Kinetics-400
+
+| Architecture |#Frame |  Top-1 Acc.(%) | checkpoint | Train log| config|
+|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
+| ViT-B/32 | 8x3x4 | 80.0 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-32-f8.pt) | [log](exps/k400/ViT-B/32/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-32-f8.yaml) |
+| ViT-B/32 | 16x3x4 | 80.5 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-32-f16.pt) | [log](exps/k400/ViT-B/32/f16/log.txt)  | [config](configs/k400/k400_train_rgb_vitb-32-f16.yaml) |
+| ViT-B/16 | 8x3x4 | 82.9 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f8.pt) | [log](exps/k400/ViT-B/16/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f8.yaml) |
+| ViT-B/16 | 16x3x4 | 83.6 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f16.pt)| [log](exps/k400/ViT-B/16/f16/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f16.yaml) |
+| ViT-L/14* | 8x3x4 | 86.4 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EdGV-r24UfFIjn8LRvcMtxwBEf3K0C0xP_XhqCVwuSrqVQ?e=YECrj6) | [log](exps/k400/ViT-L/14/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-f8.yaml) |
+| ViT-L/14-336 | 8x3x4 | 87.1 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EY2KV7M4MZFDv09JCgtkuJABn3KupI_TKVG2Nl3u-i9ilA?e=1CNZEV)  | [log](exps/k400/ViT-L/14-336px/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f8.yaml) |
+| ViT-L/14-336 | 32x3x1 | 87.8 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EWsVZ4RdokdChpE1RTM4ibsBHmoPnllRYv5xHb_rK2FaEA?e=iDpPfY) | [log](exps/k400/ViT-L/14-336px/f32/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f32.yaml) |
+
+*Note: * indicates that this ViT-L model is used for the zero-shot evaluation on UCF, HMDB, ActivityNet and Kinetics-600.*
+
+#### ActivityNet
+| Architecture |#Frame |  mAP (%) | checkpoint | Train log| config|
+|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
+| ViT-L/14 | 16x1x1 | 96.5 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/Efreue0XeWBIvtPXvoSjswcBd6ZiuNOdstG_jvhhLsjgQA?e=8HJ9Hq) | [log](exps/anet/ViT-L/14/f16/log.txt) | [config](configs/anet/anet_k400_finetune.yaml) |
+| ViT-L/14-336 | 16x1x1 | 96.9 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EdWqlmbwFVxChYHie5VfXocBgSVtEDpANa34u3HbQJk9bQ?e=ZILIiS) | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
+
+#### UCF-101
+| Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
+|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
+| ViT-L/14 | 16x1x1 | 98.1 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/Ec6KeUdxH_lGoJG2608ia7ABSTuT0u4UgrHalABvqeZb7g?e=2Jyb7M) | [log](exps/ucf101/ViT-L/14/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune.yaml) |
+<!-- | ViT-L/14-336 | 16x1x1 | 98.2 | - | [log](exps/ucf101/ViT-L/14-336px/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune_336.yaml) | -->
+
+#### HMDB-51
+| Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
+|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
+| ViT-L/14 | 16x1x1 | 81.3 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EdL3-B2TqTRArrXbK5Go_jgB89bLk8oUHlzHDq1pdr4EUA?e=brWaFg) | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
 
 
 
@@ -143,44 +182,6 @@ sh scripts/run_test.sh  configs/k600/k600_zero_shot_split1.yaml exp/k400/ViT-L/1
 sh scripts/run_test.sh  configs/k600/k600_zero_shot_split2.yaml exp/k400/ViT-L/14/f8/last_model.pt
 sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/14/f8/last_model.pt
 ```
-
-
-
-## 📱 Model Zoo
-
-Here we provide some off-the-shelf pre-trained checkpoints of our models in the followin tables.
-
-*#Frame = #input_frame x #spatial crops x #temporal clips*
-#### Kinetics-400
-
-| Architecture |#Frame |  Top-1 Acc.(%) | checkpoint | Train log| config|
-|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-B/32 | 8x3x4 | 80.0 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-32-f8.pt) | [log](exps/k400/ViT-B/32/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-32-f8.yaml) |
-| ViT-B/32 | 16x3x4 | 80.5 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-32-f16.pt) | [log](exps/k400/ViT-B/32/f16/log.txt)  | [config](configs/k400/k400_train_rgb_vitb-32-f16.yaml) |
-| ViT-B/16 | 8x3x4 | 82.9 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f8.pt) | [log](exps/k400/ViT-B/16/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f8.yaml) |
-| ViT-B/16 | 16x3x4 | 83.6 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f16.pt)| [log](exps/k400/ViT-B/16/f16/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f16.yaml) |
-| ViT-L/14* | 8x3x4 | 86.4 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EdGV-r24UfFIjn8LRvcMtxwBEf3K0C0xP_XhqCVwuSrqVQ?e=YECrj6) | [log](exps/k400/ViT-L/14/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-f8.yaml) |
-| ViT-L/14-336 | 8x3x4 | 87.1 | [BaiduCloud](https://pan.baidu.com/s/1aRyU08rdNjNZzGEFHaGLDw) pwd:uwl6 | [log](exps/k400/ViT-L/14-336px/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f8.yaml) |
-| ViT-L/14-336 | 32x3x1 | 87.8 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EWsVZ4RdokdChpE1RTM4ibsBHmoPnllRYv5xHb_rK2FaEA?e=iDpPfY) | [log](exps/k400/ViT-L/14-336px/f32/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f32.yaml) |
-
-*Note: * indicates that this ViT-L model is used for the zero-shot evaluation on UCF, HMDB, ActivityNet and Kinetics-600.*
-
-#### ActivityNet
-| Architecture |#Frame |  mAP (%) | checkpoint | Train log| config|
-|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 96.5 | [BaiduCloud](https://pan.baidu.com/s/1Gum9cSlj7B1IHOgUZjUdUw) pwd:e9m7 | [log](exps/anet/ViT-L/14/f16/log.txt) | [config](configs/anet/anet_k400_finetune.yaml) |
-| ViT-L/14-336 | 16x1x1 | 96.9 | [BaiduCloud](https://pan.baidu.com/s/12rHqi9R1cFORpZEbqhvsfg) pwd:duq7 | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
-
-#### UCF-101
-| Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
-|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 98.1 | [BaiduCloud](https://pan.baidu.com/s/1jI6gKnzqeOLtJJyK9vBLhw) pwd:i93p | [log](exps/ucf101/ViT-L/14/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune.yaml) |
-<!-- | ViT-L/14-336 | 16x1x1 | 98.2 | - | [log](exps/ucf101/ViT-L/14-336px/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune_336.yaml) | -->
-
-#### HMDB-51
-| Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
-|:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 81.3 | [Baidu Cloud](https://pan.baidu.com/s/1aa_uBAc0Cauww8WZMWmqsQ) pwd:023f | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
 
 
 
