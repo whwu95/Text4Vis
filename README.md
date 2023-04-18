@@ -33,11 +33,13 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 ![1](teaser.png)  
 ![2](text4vis.png)  
 
-* [Prerequisites](#Prerequisites)
-* [Data Preparation](#data-preparation)
-* [Model Zoo](#model-zoo)
-* [Training](#training)  
-* [Testing](#testing)  
+- [Prerequisites](#prerequisites)
+- [Data Preparation](#data-preparation)
+- [Model Zoo](#model-zoo)
+- [Training](#training)  
+- [Testing](#testing)  
+- [Bibtex](#bibtex)
+- [Acknowledgment](#acknowledgment)
 
 
 
