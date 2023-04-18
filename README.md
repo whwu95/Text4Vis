@@ -33,6 +33,7 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 ![1](teaser.png)  
 ![2](text4vis.png)  
 
+## Content
 - [Prerequisites](#prerequisites)
 - [Data Preparation](#data-preparation)
 - [Model Zoo](#model-zoo)
@@ -42,7 +43,7 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 - [Acknowledgment](#acknowledgment)
 
 
-
+<a name="prerequisites"></a>
 ## 📕 Prerequisites
 The code is built with following libraries:
 
@@ -56,6 +57,7 @@ The code is built with following libraries:
 - Optional: decord (for on-the-fly video training)
 - Optional: torchnet (for mAP evaluation on ActivityNet)
 
+<a name="data-preparation"></a>
 ## 📚 Data Preparation
 
 #### Video Loader
@@ -79,7 +81,7 @@ Annotation information consists of two parts: video label, and category descript
 - Category Description: We also need a textual description for each video category.  Please refer to `lists/kinetics_400_labels.csv` for the format.
 
 
-
+<a name="model-zoo"></a>
 ## 📱 Model Zoo
 
 Here we provide some off-the-shelf pre-trained checkpoints of our models in the followin tables.
@@ -117,7 +119,7 @@ Here we provide some off-the-shelf pre-trained checkpoints of our models in the 
 | ViT-L/14 | 16x1x1 | 81.3 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wewu2985_sydney_edu_au/EdL3-B2TqTRArrXbK5Go_jgB89bLk8oUHlzHDq1pdr4EUA?e=brWaFg) | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
 
 
-
+<a name="training"></a>
 ## 🚀 Training
 This implementation supports Multi-GPU `DistributedDataParallel` training, which is faster and simpler than `DataParallel` used in [ActionCLIP](https://github.com/sallymmx/actionclip). 
 
@@ -146,7 +148,7 @@ data:
     shot: 2  # i.e., 2-shot setting
 ```
 
-
+<a name="testing"></a>
 ## ⚡ Testing
 We support single view validation and multi-view (4x3 views) validation.
 
@@ -187,7 +189,7 @@ sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/1
 
 
 
-
+<a name="bibtex"></a>
 ## 📌 Bibtex
 If you find this repository useful, please star🌟 this repo and cite📑 our paper:
 
@@ -202,7 +204,7 @@ If you find this repository useful, please star🌟 this repo and cite📑 our p
 
 
 
-
+<a name="acknowledgment"></a>
 ## 🎗️ Acknowledgement
 
 This repository is built based on [ActionCLIP](https://github.com/sallymmx/actionclip) and [CLIP](https://github.com/openai/CLIP). Sincere thanks to their wonderful works.
