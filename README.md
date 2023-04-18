@@ -1,4 +1,12 @@
+<div align="center">
+
 # 🔥【AAAI'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition
+
+[![Conference](http://img.shields.io/badge/AAAI-2023-dfd.svg)](https://aaai-23.aaai.org/)
+[![Paper](http://img.shields.io/badge/Paper-arxiv.2207.01297-b31b1b.svg)](https://arxiv.org/abs/2207.01297)
+</div>
+
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transferring-textual-knowledge-for-visual/action-classification-on-kinetics-400)](https://paperswithcode.com/sota/action-classification-on-kinetics-400?p=transferring-textual-knowledge-for-visual)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transferring-textual-knowledge-for-visual/action-recognition-in-videos-on-activitynet)](https://paperswithcode.com/sota/action-recognition-in-videos-on-activitynet?p=transferring-textual-knowledge-for-visual)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transferring-textual-knowledge-for-visual/action-recognition-in-videos-on-ucf101)](https://paperswithcode.com/sota/action-recognition-in-videos-on-ucf101?p=transferring-textual-knowledge-for-visual)
