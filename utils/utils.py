@@ -71,13 +71,22 @@ def gather_labels(labels):
     return all_labels
 
 
-def gen_label(labels):
+def gen_label_cpu(labels):
     num = len(labels)
-    gt = numpy.zeros(shape=(num,num))
+    gt = np.zeros(shape=(num,num))
     for i, label in enumerate(labels):
         for k in range(num):
             if labels[k] == label:
                 gt[i,k] = 1
+    return gt
+
+
+def gen_label(labels):
+    num = len(labels)
+    gt = torch.zeros(size=(num,num))
+    labels_column = labels.reshape(-1,1).repeat(1,num)
+    labels_row = labels.repeat(num,1)
+    gt[labels_column == labels_row] = 1
     return gt
 
 def convert_models_to_fp32(model):
