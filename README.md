@@ -22,12 +22,10 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 
 
 ## 📣 Updates
-- [x] **[Dec 22, 2022]** Models: The trained models & logs.
+- [x] **[Dec 22, 2022]** Models: The pre-trained models & logs.
 - [x] **[Nov 30, 2022]** Config: All the configs (general/few-shot/zero-shot video recognition) on Kinetics-400 & 600, ActivityNet, UCF, and HMDB.
 - [x] **[Nov 30, 2022]** Code: Zero-shot Evaluation: Half-classes evaluation and Full-classes evaluation.
-- [x] **[Nov 29, 2022]** Code: Distributed training for InfoNCE and Compatible with CE.
-- [x] **[Nov 28, 2022]** Code: Multi-Machine Multi-GPU Distributed Training
-- [x] **[Nov 28, 2022]** Code: Single-Machine Multi-GPU Distributed Training, Distributed testing.
+- [x] **[Nov 28, 2022]** Code: Single-Machine/Multi-Machine Multi-GPU Distributed Training, Distributed testing.
 - [x] **[Nov 19, 2022]** 🎉Our paper has been accepted by **AAAI-2023**.
 - [x] **[Jul 1, 2022]** 💡Our [initial Arxiv paper](https://arxiv.org/abs/2207.01297v1) is released.
 
@@ -92,7 +90,7 @@ Annotation information consists of two parts: video label, and category descript
 <a name="model-zoo"></a>
 ## 📱 Model Zoo
 
-Here we provide some off-the-shelf pre-trained checkpoints of our models in the followin tables.
+Here we provide some off-the-shelf pre-trained checkpoints of our models in the following tables.
 
 *#Frame = #input_frame x #spatial crops x #temporal clips*
 #### Kinetics-400
@@ -202,10 +200,10 @@ sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/1
 If you find this repository useful, please star🌟 this repo and cite📑 our paper:
 
 ```
-@article{wu2022transferring,
+@article{wu2023revisiting,
   title={Revisiting Classifier: Transferring Vision-Language Models for Video Recognition},
   author={Wu, Wenhao and Sun, Zhun and Ouyang, Wanli},
-  booktitle={AAAI Conference on Artificial Intelligence (AAAI)},
+  booktitle={Proceedings of AAAI Conference on Artificial Intelligence (AAAI)},
   year={2023}
 }
 ```
