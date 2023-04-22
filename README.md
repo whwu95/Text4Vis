@@ -1,9 +1,17 @@
 <div align="center">
 
-# 🔥【AAAI'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition
+<h1> 🔥【AAAI'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition </h1>
 
 [![Conference](http://img.shields.io/badge/AAAI-2023-dfd.svg)](https://aaai-23.aaai.org/)
 [![Paper](http://img.shields.io/badge/Paper-arxiv.2207.01297-b31b1b.svg)](https://arxiv.org/abs/2207.01297)
+
+
+[Wenhao Wu](https://whwu95.github.io/)<sup>1,2</sup>, [Zhun Sun](https://scholar.google.co.jp/citations?user=Y-3iZ9EAAAAJ&hl=en)<sup>2</sup>, [Wanli Ouyang](https://wlouyang.github.io/)<sup>3,1</sup>
+
+ 
+<sup>1</sup>[The University of Sydney](https://www.sydney.edu.au/), <sup>2</sup>[Baidu](https://vis.baidu.com/#/), <sup>3</sup>[Shanghai AI Lab](https://www.shlab.org.cn/)
+
+
 </div>
 
 
@@ -18,16 +26,29 @@
 
 This is the official implementation of the paper [Revisiting Classifier: Transferring Vision-Language Models for Video Recognition](https://arxiv.org/abs/2207.01297). 
 
+<details ><summary>📣 I also have other cross-modal video projects that may interest you ✨. </summary><p>
+
+
+> [**Bidirectional Cross-Modal Knowledge Exploration for Video Recognition with Pre-trained Vision-Language Models**](https://arxiv.org/abs/2301.00182)<br>
+> Accepted by CVPR 2023 | [[BIKE Code]](https://github.com/whwu95/BIKE)<br>
+> Wenhao Wu, Xiaohan Wang, Haipeng Luo, Jingdong Wang, Yi Yang, Wanli Ouyang
+
+
+> [**Cap4Video: What Can Auxiliary Captions Do for Text-Video Retrieval?**](https://arxiv.org/abs/2301.00184)<br>
+> Accepted by CVPR 2023 as 🌟Highlight🌟 | [[Cap4Video Code]](https://github.com/whwu95/Cap4Video)<br>
+> Wenhao Wu, Haipeng Luo, Bo Fang, Jingdong Wang, Wanli Ouyang
+
+</p></details>
 
 
 
 ## 📣 Updates
-- [x] **[Dec 22, 2022]** Models: The pre-trained models & logs.
-- [x] **[Nov 30, 2022]** Config: All the configs (general/few-shot/zero-shot video recognition) on Kinetics-400 & 600, ActivityNet, UCF, and HMDB.
-- [x] **[Nov 30, 2022]** Code: Zero-shot Evaluation: Half-classes evaluation and Full-classes evaluation.
-- [x] **[Nov 28, 2022]** Code: Single-Machine/Multi-Machine Multi-GPU Distributed Training, Distributed testing.
-- [x] **[Nov 19, 2022]** 🎉Our paper has been accepted by **AAAI-2023**.
-- [x] **[Jul 1, 2022]** 💡Our [initial Arxiv paper](https://arxiv.org/abs/2207.01297v1) is released.
+- [x] **`Dec 22, 2022`** Models: The pre-trained models & logs.
+- [x] **`Nov 30, 2022`** Config: All the configs (general/few-shot/zero-shot video recognition) on Kinetics-400 & 600, ActivityNet, UCF, and HMDB.
+- [x] **`Nov 30, 2022`** Code: Zero-shot Evaluation: Half-classes evaluation and Full-classes evaluation.
+- [x] **`Nov 28, 2022`** Code: Single-Machine/Multi-Machine Multi-GPU Distributed Training, Distributed testing.
+- [x] **`Nov 19, 2022`** 🎉Our paper has been accepted by **AAAI-2023**.
+- [x] **`Jul 1, 2022`** 💡Our [initial Arxiv paper](https://arxiv.org/abs/2207.01297v1) is released.
 
 
 
@@ -36,6 +57,8 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 
 
 ## 🌈 Overview
+In our Text4Vis, we revise the role of the linear classifier and replace the classifier with the different knowledge from pre-trained model. We utilize the well-pretrained language model to generate good semantic target for efficient transferring learning.
+
 ![1](teaser.png)  
 ![2](text4vis.png)  
 
@@ -45,7 +68,7 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 - [Model Zoo](#model-zoo)
 - [Training](#training)  
 - [Testing](#testing)  
-- [Bibtex](#bibtex)
+- [BibTeX & Citation](#bibtex)
 - [Acknowledgment](#acknowledgment)
 
 
@@ -196,7 +219,7 @@ sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/1
 
 
 <a name="bibtex"></a>
-## 📌 Bibtex
+## 📌 BibTeX & Citation
 If you find this repository useful, please star🌟 this repo and cite📑 our paper:
 
 ```
