@@ -222,7 +222,7 @@ sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/1
 ## 📌 BibTeX & Citation
 If you find this repository useful, please star🌟 this repo and cite📑 our paper:
 
-```
+```bibtex
 @article{wu2023revisiting,
   title={Revisiting Classifier: Transferring Vision-Language Models for Video Recognition},
   author={Wu, Wenhao and Sun, Zhun and Ouyang, Wanli},
@@ -231,6 +231,16 @@ If you find this repository useful, please star🌟 this repo and cite📑 our p
 }
 ```
 
+If you also find [BIKE](https://github.com/whwu95/BIKE) useful, please cite the paper:
+
+```bibtex
+@inproceedings{bike,
+  title={Bidirectional Cross-Modal Knowledge Exploration for Video Recognition with Pre-trained Vision-Language Models},
+  author={Wu, Wenhao and Wang, Xiaohan and Luo, Haipeng and Wang, Jingdong and Yang, Yi and Ouyang, Wanli},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2023}
+}
+```
 
 
 <a name="acknowledgment"></a>
@@ -240,5 +250,5 @@ This repository is built based on [ActionCLIP](https://github.com/sallymmx/actio
 
 
 ## 👫 Contact
-For any question, please file an issue or contact [Wenhao Wu](https://whwu95.github.io/)
+For any question, please file an issue or contact [Wenhao Wu](https://whwu95.github.io/).
 
