@@ -2,8 +2,8 @@
 
 <h1> 🔥【AAAI'2023, IJCV'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition </h1>
 
-[![Conference](http://img.shields.io/badge/AAAI-2023-dfd.svg)]([https://ojs.aaai.org/index.php/AAAI/article/view/25386/25158])
-[![Journal](http://img.shields.io/badge/IJCV-2023-b31b1b.svg)]([https://link.springer.com/article/10.1007/s11263-023-01876-w])
+[![Paper](http://img.shields.io/badge/AAAI-2023-dfd.svg)](https://ojs.aaai.org/index.php/AAAI/article/view/25386/25158)
+[![Paper](http://img.shields.io/badge/IJCV-2023-b31b1b.svg)](https://link.springer.com/article/10.1007/s11263-023-01876-w)
 
 
 [Wenhao Wu](https://whwu95.github.io/)<sup>1,2</sup>, [Zhun Sun](https://scholar.google.co.jp/citations?user=Y-3iZ9EAAAAJ&hl=en)<sup>2</sup>, [Wanli Ouyang](https://wlouyang.github.io/)<sup>3,1</sup>
