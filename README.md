@@ -1,9 +1,9 @@
 <div align="center">
 
-<h1> 🔥【AAAI'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition </h1>
+<h1> 🔥【AAAI'2023, IJCV'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition </h1>
 
-[![Conference](http://img.shields.io/badge/AAAI-2023-dfd.svg)](https://aaai-23.aaai.org/)
-[![Paper](http://img.shields.io/badge/Paper-arxiv.2207.01297-b31b1b.svg)](https://arxiv.org/abs/2207.01297)
+[![Conference](http://img.shields.io/badge/AAAI-2023-dfd.svg)]([https://ojs.aaai.org/index.php/AAAI/article/view/25386/25158])
+[![Journal](http://img.shields.io/badge/IJCV-2023-b31b1b.svg)]([https://link.springer.com/article/10.1007/s11263-023-01876-w])
 
 
 [Wenhao Wu](https://whwu95.github.io/)<sup>1,2</sup>, [Zhun Sun](https://scholar.google.co.jp/citations?user=Y-3iZ9EAAAAJ&hl=en)<sup>2</sup>, [Wanli Ouyang](https://wlouyang.github.io/)<sup>3,1</sup>
@@ -24,7 +24,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transferring-textual-knowledge-for-visual/zero-shot-action-recognition-on-hmdb51)](https://paperswithcode.com/sota/zero-shot-action-recognition-on-hmdb51?p=transferring-textual-knowledge-for-visual)
 
 
-This is the official implementation of the paper [Revisiting Classifier: Transferring Vision-Language Models for Video Recognition](https://arxiv.org/abs/2207.01297). 
+This is the official implementation of the **AAAI paper** [Revisiting Classifier: Transferring Vision-Language Models for Video Recognition](https://arxiv.org/abs/2207.01297), and **IJCV paper** [Transferring Vision-Language Models for Visual Recognition: A Classifier Perspective](https://link.springer.com/article/10.1007/s11263-023-01876-w).
 
 <details ><summary>🙋 I also have other cross-modal video projects that may interest you ✨. </summary><p>
 
@@ -43,6 +43,7 @@ This is the official implementation of the paper [Revisiting Classifier: Transfe
 
 
 ## 📣 Updates
+- [x] **`Aug 07, 2023`** The extension of Text4Vis has been accepted by **International Journal of Computer Vision (IJCV)**.
 - [x] **`Dec 22, 2022`** Models: The pre-trained models & logs.
 - [x] **`Nov 30, 2022`** Config: All the configs (general/few-shot/zero-shot video recognition) on Kinetics-400 & 600, ActivityNet, UCF, and HMDB.
 - [x] **`Nov 30, 2022`** Code: Zero-shot Evaluation: Half-classes evaluation and Full-classes evaluation.
@@ -223,11 +224,23 @@ sh scripts/run_test.sh  configs/k600/k600_zero_shot_split3.yaml exp/k400/ViT-L/1
 If you find this repository useful, please star🌟 this repo and cite📑 our paper:
 
 ```bibtex
-@article{wu2023revisiting,
-  title={Revisiting Classifier: Transferring Vision-Language Models for Video Recognition},
+@inproceedings{wu2023revisiting,
+  title={Revisiting classifier: Transferring vision-language models for video recognition},
   author={Wu, Wenhao and Sun, Zhun and Ouyang, Wanli},
-  booktitle={Proceedings of AAAI Conference on Artificial Intelligence (AAAI)},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={37},
+  number={3},
+  pages={2847--2855},
   year={2023}
+}
+
+@article{wu2023transferring,
+  title={Transferring vision-language models for visual recognition: A classifier perspective},
+  author={Wu, Wenhao and Sun, Zhun and Song, Yuxin and Wang, Jingdong and Ouyang, Wanli},
+  journal={International Journal of Computer Vision},
+  pages={1--18},
+  year={2023},
+  publisher={Springer}
 }
 ```
 
