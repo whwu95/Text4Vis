@@ -263,5 +263,5 @@ This repository is built based on [ActionCLIP](https://github.com/sallymmx/actio
 
 
 ## 👫 Contact
-For any question, please file an issue or contact [Wenhao Wu](https://whwu95.github.io/).
+For any question, please file an issue.
 
