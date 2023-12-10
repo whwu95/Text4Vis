@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1> 🔥【AAAI'2023, IJCV'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition </h1>
+<h2> 🔥【AAAI'2023, IJCV'2023】Revisiting Classifier: Transferring Vision-Language Models for Video Recognition </h2>
 
 [![Conference](http://img.shields.io/badge/AAAI-2023-f9f107.svg)](https://ojs.aaai.org/index.php/AAAI/article/view/25386/25158) 
 [![Journal](http://img.shields.io/badge/IJCV-2023-Bf107.svg)](https://link.springer.com/article/10.1007/s11263-023-01876-w) 
