@@ -92,7 +92,7 @@ The code is built with following libraries:
 ## 📚 Data Preparation
 
 #### Video Loader
-**(Recommend)** To train all of our models, we extract videos into frames for fast reading. Please refer to [MVFNet](https://github.com/whwu95/MVFNet/blob/main/data_process/DATASETS.md) repo for the detaied guide of data processing.  
+**(Recommend)** To train all of our models, we extract videos into frames for fast reading. Please refer to [MVFNet](https://github.com/whwu95/MVFNet/blob/main/data_process/DATASETS.md) repo for the detailed guide of data processing.  
 The annotation file is a text file with multiple lines, and each line indicates the directory to frames of a video, total frames of the video and the label of a video, which are split with a whitespace. Here is the format: 
 ```sh
 abseiling/-7kbO0v4hag_000107_000117 300 0
@@ -135,7 +135,7 @@ Here we provide some off-the-shelf pre-trained checkpoints of our models in the 
 #### ActivityNet
 | Architecture |#Frame |  mAP (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 96.5 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/Efreue0XeWBIvtPXvoSjswcBd6ZiuNOdstG_jvhhLsjgQA?e=3Rg8nx) | [config](configs/anet/anet_k400_finetune.yaml) |
+| ViT-L/14 | 16x1x1 | 96.5 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/Efreue0XeWBIvtPXvoSjswcBd6ZiuNOdstG_jvhhLsjgQA?e=3Rg8nx) | [log](exps/anet/ViT-L/14/f16/log.txt) | [config](configs/anet/anet_k400_finetune.yaml) |
 | ViT-L/14-336 | 16x1x1 | 96.9 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/EdWqlmbwFVxChYHie5VfXocBgSVtEDpANa34u3HbQJk9bQ?e=dXkJCs) | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
 
 #### UCF-101
@@ -160,7 +160,7 @@ This implementation supports Multi-GPU `DistributedDataParallel` training, which
 sh scripts/run_train.sh  configs/k400/k400_train_rgb_vitb-32-f8.yaml
 ```
 
-- **Mulitple Machines**: We also provide the script to train larger model with *Mulitple Machines* (e.g., 2 machines and 16 GPUs), you can run:
+- **Multiple Machines**: We also provide the script to train larger model with *Multiple Machines* (e.g., 2 machines and 16 GPUs), you can run:
 ```sh
 # For example, we train the 8 Frames ViT-L/14 with 2 machines as follows:
 # For first machine, you need to set the ip of your first machine as the --master_addr, --nnodes is 2.
@@ -188,7 +188,7 @@ We support single view validation and multi-view (4x3 views) validation.
 # Single view evaluation. e.g., ViT-B/32 8 Frames on Kinetics-400
 sh scripts/run_test.sh  configs/k400/k400_train_rgb_vitb-32-f8.yaml exp/k400/ViT-B/32/f8/last_model.pt
 
-# Multi-view evalition (4clipsx3crops). e.g., ViT-B/32 8 Frames on Kinetics-400
+# Multi-view evaluation (4clipsx3crops). e.g., ViT-B/32 8 Frames on Kinetics-400
 sh scripts/run_test.sh  configs/k400/k400_train_rgb_vitb-32-f8.yaml exp/k400/ViT-B/32/f8/last_model.pt --test_crops 3  --test_clips 4
 ```
 
