@@ -126,28 +126,28 @@ Here we provide some off-the-shelf pre-trained checkpoints of our models in the 
 | ViT-B/32 | 16x3x4 | 80.5 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-32-f16.pt) | [log](exps/k400/ViT-B/32/f16/log.txt)  | [config](configs/k400/k400_train_rgb_vitb-32-f16.yaml) |
 | ViT-B/16 | 8x3x4 | 82.9 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f8.pt) | [log](exps/k400/ViT-B/16/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f8.yaml) |
 | ViT-B/16 | 16x3x4 | 83.6 | [Github](https://github.com/whwu95/Text4Vis/releases/download/v1/k400-vitb-16-f16.pt)| [log](exps/k400/ViT-B/16/f16/log.txt) | [config](configs/k400/k400_train_rgb_vitb-16-f16.yaml) |
-| ViT-L/14* | 8x3x4 | 86.4 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/EdGV-r24UfFIjn8LRvcMtxwBEf3K0C0xP_XhqCVwuSrqVQ?e=PTlzM8) | [log](exps/k400/ViT-L/14/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-f8.yaml) |
-| ViT-L/14-336 | 8x3x4 | 87.1 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/EY2KV7M4MZFDv09JCgtkuJABn3KupI_TKVG2Nl3u-i9ilA?e=meLTxB)  | [log](exps/k400/ViT-L/14-336px/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f8.yaml) |
-| ViT-L/14-336 | 32x3x1 | 87.8 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/EWsVZ4RdokdChpE1RTM4ibsBHmoPnllRYv5xHb_rK2FaEA?e=f7794P) | [log](exps/k400/ViT-L/14-336px/f32/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f32.yaml) |
+| ViT-L/14* | 8x3x4 | 86.4 | [OneDrive](https://unisyd-my.sharepoint.com/:f:/g/personal/wenhao_wu_sydney_edu_au/EqsXAPrVnUFBv77XCk6CEzQBZXqEcWySWzr2MoIBfD29tw?e=T0HaTe) | [log](exps/k400/ViT-L/14/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-f8.yaml) |
+| ViT-L/14-336 | 8x3x4 | 87.1 | [OneDrive](https://unisyd-my.sharepoint.com/:f:/g/personal/wenhao_wu_sydney_edu_au/EqsXAPrVnUFBv77XCk6CEzQBZXqEcWySWzr2MoIBfD29tw?e=T0HaTe)  | [log](exps/k400/ViT-L/14-336px/f8/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f8.yaml) |
+| ViT-L/14-336 | 32x3x1 | 87.8 | [OneDrive](https://unisyd-my.sharepoint.com/:f:/g/personal/wenhao_wu_sydney_edu_au/EqsXAPrVnUFBv77XCk6CEzQBZXqEcWySWzr2MoIBfD29tw?e=T0HaTe) | [log](exps/k400/ViT-L/14-336px/f32/log.txt) | [config](configs/k400/k400_train_rgb_vitl-14-336-f32.yaml) |
 
 *Note: * indicates that this ViT-L model is used for the zero-shot evaluation on UCF, HMDB, ActivityNet and Kinetics-600.*
 
 #### ActivityNet
 | Architecture |#Frame |  mAP (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 96.5 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/Efreue0XeWBIvtPXvoSjswcBd6ZiuNOdstG_jvhhLsjgQA?e=3Rg8nx) | [config](configs/anet/anet_k400_finetune.yaml) |
-| ViT-L/14-336 | 16x1x1 | 96.9 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/EdWqlmbwFVxChYHie5VfXocBgSVtEDpANa34u3HbQJk9bQ?e=dXkJCs) | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
+| ViT-L/14 | 16x1x1 | 96.5 | [OneDrive](https://unisyd-my.sharepoint.com/:f:/g/personal/wenhao_wu_sydney_edu_au/EqsXAPrVnUFBv77XCk6CEzQBZXqEcWySWzr2MoIBfD29tw?e=T0HaTe) | [config](configs/anet/anet_k400_finetune.yaml) |
+| ViT-L/14-336 | 16x1x1 | 96.9 | [OneDrive](https://unisyd-my.sharepoint.com/:f:/g/personal/wenhao_wu_sydney_edu_au/EqsXAPrVnUFBv77XCk6CEzQBZXqEcWySWzr2MoIBfD29tw?e=T0HaTe) | [log](exps/anet/ViT-L/14-336px/f16/log.txt) | [config](configs/anet/anet_k400_finetune_336.yaml) |
 
 #### UCF-101
 | Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 98.1 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/Ec6KeUdxH_lGoJG2608ia7ABSTuT0u4UgrHalABvqeZb7g?e=WHmK38) | [log](exps/ucf101/ViT-L/14/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune.yaml) |
+| ViT-L/14 | 16x1x1 | 98.1 | [OneDrive](https://unisyd-my.sharepoint.com/:f:/g/personal/wenhao_wu_sydney_edu_au/EqsXAPrVnUFBv77XCk6CEzQBZXqEcWySWzr2MoIBfD29tw?e=T0HaTe) | [log](exps/ucf101/ViT-L/14/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune.yaml) |
 <!-- | ViT-L/14-336 | 16x1x1 | 98.2 | - | [log](exps/ucf101/ViT-L/14-336px/f16/log.txt) | [config](configs/ucf101/ucf_k400_finetune_336.yaml) | -->
 
 #### HMDB-51
 | Architecture |#Frame |  Top-1 Acc. (%) | checkpoint | Train log| config|
 |:------------:|:-------------------:|:------------------:|:-----------------:|:--------------:|:--------------:|
-| ViT-L/14 | 16x1x1 | 81.3 | [OneDrive](https://unisyd-my.sharepoint.com/:u:/g/personal/wenhao_wu_sydney_edu_au/EdL3-B2TqTRArrXbK5Go_jgB89bLk8oUHlzHDq1pdr4EUA?e=WzLdgO) | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
+| ViT-L/14 | 16x1x1 | 81.3 | [OneDrive](https://unisyd-my.sharepoint.com/:f:/g/personal/wenhao_wu_sydney_edu_au/EqsXAPrVnUFBv77XCk6CEzQBZXqEcWySWzr2MoIBfD29tw?e=T0HaTe) | [log](exps/hmdb51/ViT-L/14/f16/log.txt) | [config](configs/hmdb51/hmdb_k400_finetune.yaml) |
 
 
 <a name="training"></a>
